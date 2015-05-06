@@ -28,11 +28,11 @@ function buttonOrange(){
   context.fillRect(Math.floor(Math.random()*200),Math.floor(Math.random()*100), Math.floor(Math.random()*200),Math.floor(Math.random()*200));
 }
 
-function squareTrans(){
+function circTrans(){
   var context = canvas.getContext('2d');
   context.globalAlpha = Math.random();
   context.beginPath();
-  context.arc(320, 120, 60, 0, 2 * Math.PI, false);
+  context.arc(180, 120, 60, 0, 2 * Math.PI, false);
   context.fillStyle = 'green';
   context.fill();
 }
@@ -43,6 +43,25 @@ function clearArea(){
   var size = { x: canvas.width, y: canvas.height };
   context.clearRect(0,0, size.x, size.y);
 }
+
+function randShapes(){
+  var canvas = document.getElementById('canvas');
+  var context = canvas.getContext('2d');
+  var size = { x: canvas.width, y: canvas.height };
+
+  if(Math.floor(Math.random() > 0.6)){
+    context.fillRect(Math.floor(Math.random()*200),Math.floor(Math.random()*100), Math.floor(Math.random()*200),Math.floor(Math.random()*200));
+    context.fillStyle = 'green';
+  }
+  else {
+    context.globalAlpha = Math.random();
+    context.beginPath();
+    context.arc(Math.random()*300, Math.random()*300, 60, 0, 2 * Math.PI, false);
+    context.fillStyle = 'green';
+    context.fill();
+  }
+}
+
 
 document.getElementById("canvas").addEventListener("click", function(){
   fillBlue();
@@ -57,12 +76,16 @@ document.getElementById("orange").addEventListener("click", function(){
 });
 
 document.getElementById("green").addEventListener("click", function(){
-  squareTrans();
+  circTrans();
 });
 
 document.getElementById("clear").addEventListener("click", function(){
   clearArea();
   drawBorder();
+});
+
+document.getElementById("red").addEventListener("click", function(){
+  randShapes();
 });
 
 drawBorder();
