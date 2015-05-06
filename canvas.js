@@ -37,6 +37,13 @@ function squareTrans(){
   context.fill();
 }
 
+function clearArea(){
+  var canvas = document.getElementById('canvas');
+  var context = canvas.getContext('2d');
+  var size = { x: canvas.width, y: canvas.height };
+  context.clearRect(0,0, size.x, size.y);
+}
+
 document.getElementById("canvas").addEventListener("click", function(){
   fillBlue();
 });
@@ -51,6 +58,11 @@ document.getElementById("orange").addEventListener("click", function(){
 
 document.getElementById("green").addEventListener("click", function(){
   squareTrans();
+});
+
+document.getElementById("clear").addEventListener("click", function(){
+  clearArea();
+  drawBorder();
 });
 
 drawBorder();
