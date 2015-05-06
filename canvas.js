@@ -32,7 +32,7 @@ function circTrans(){
   var context = canvas.getContext('2d');
   context.globalAlpha = Math.random();
   context.beginPath();
-  context.arc(180, 120, 60, 0, 2 * Math.PI, false);
+  context.arc(Math.random()*300, Math.random()*300, 50*Math.random(),0, Math.PI*2, false);
   context.fillStyle = 'green';
   context.fill();
 }
@@ -61,7 +61,6 @@ function randShapes(){
     context.fill();
   }
 }
-
 
 document.getElementById("canvas").addEventListener("click", function(){
   fillBlue();
